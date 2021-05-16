@@ -9,28 +9,11 @@ public class Wizard extends Character implements Attacker{
 
     public Wizard(String name) {
         super(name);
-        this.hp = randomHP();
-        this.mana = randomMana();
-        this.intelligence = randomIntelligence();
+        setHp(hp);
+        setMana(mana);
+        setIntelligence(intelligence);
     }
 
-    public int randomHP(){
-        Random rand = new Random();
-        int random = 50 + rand.nextInt(50);
-        return random;
-    }
-
-    public int randomMana(){
-        Random rand = new Random();
-        int randomMana = 10 + rand.nextInt(40);
-        return randomMana;
-    }
-
-    public int randomIntelligence(){
-        Random rand = new Random();
-        int randomIntelligence = rand.nextInt(50);
-        return randomIntelligence;
-    }
 
     @Override
     public int attack() {
@@ -65,7 +48,8 @@ public class Wizard extends Character implements Attacker{
     }
 
     public void setMana(int mana) {
-        this.mana = mana;
+        Random rand = new Random();
+        this.mana = 10 + rand.nextInt(40);
     }
 
     public int getIntelligence() {
@@ -73,6 +57,7 @@ public class Wizard extends Character implements Attacker{
     }
 
     public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
+        Random rand = new Random();
+        this.intelligence = rand.nextInt(50);
     }
 }

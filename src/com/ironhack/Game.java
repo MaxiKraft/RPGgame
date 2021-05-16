@@ -1,13 +1,15 @@
 package com.ironhack;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Game {
-    private Warrior warrior;
-    private Wizard wizard;
+
     private Warrior[] warriors;
     private Wizard[] wizards;
+    private List<Character> party1;
+    private List<Character> party2;
 
     private Random random;
 
@@ -15,27 +17,45 @@ public class Game {
 
     public Game(){
         this.random = new Random();
+
+        this.party1 = new ArrayList<Character>();
         this.warriors = new Warrior[random.nextInt(4)+1];
         for (int i = 0; i < warriors.length; i++) {
-            this.warriors[i] = new Warrior("Warrior " + names[random.nextInt(names.length)]);
+            party1.add(new Warrior("Warrior " + names[random.nextInt(names.length)]));
         }
         this.wizards = new Wizard[random.nextInt(4)+1];
         for (int i = 0; i < wizards.length; i++) {
-            this.wizards[i] = new Wizard("Wizard " + names[random.nextInt(names.length)]);
+            party1.add(new Wizard("Wizard " + names[random.nextInt(names.length)]));
         }
+
+        this.party2 = new ArrayList<Character>();
+        this.warriors = new Warrior[random.nextInt(4)+1];
+        for (int i = 0; i < warriors.length; i++) {
+            party2.add(new Warrior("Warrior " + names[random.nextInt(names.length)]));
+        }
+        this.wizards = new Wizard[random.nextInt(4)+1];
+        for (int i = 0; i < wizards.length; i++) {
+            party2.add(new Wizard("Wizard " + names[random.nextInt(names.length)]));
+        }
+
+
     }
 
     // show details
 
     public void gameDetails(){
-        String x = "Party consists of: ";
-        for (Warrior warrior: warriors) {
-            x += warrior.getName() + " | ";
+        String x = "1. Party consists of: ";
+
+        for (Character member: party1) {
+            x += member.getName() + " | ";
         }
-        for (Wizard wizard: wizards) {
-            x += wizard.getName() + " | ";
+
+        String y = "2. Party consists of: ";
+        for (Character member: party2) {
+            y += member.getName() + " | ";
         }
         System.out.println(x);
+        System.out.println(y);
     }
 
 
@@ -58,19 +78,4 @@ public class Game {
         this.wizards = wizards;
     }
 
-    public Warrior getWarrior() {
-        return warrior;
-    }
-
-    public void setWarrior(Warrior warrior) {
-        this.warrior = warrior;
-    }
-
-    public Wizard getWizard() {
-        return wizard;
-    }
-
-    public void setWizard(Wizard wizard) {
-        this.wizard = wizard;
-    }
 }

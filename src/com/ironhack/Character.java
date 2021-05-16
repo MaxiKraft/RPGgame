@@ -8,10 +8,12 @@ abstract class Character {
     protected String name;
     protected int hp;
     protected boolean alive;
+    private Random rand;
 
     public Character(String name) {
         this.alive = true;
         this.name = name;
+        this.hp = hp;
     }
 
     // methods
@@ -42,19 +44,20 @@ abstract class Character {
         this.name = name;
     }
 
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
     public boolean isAlive() {
         return alive;
     }
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.rand = new Random();
+        this.hp = 50 + rand.nextInt(50);
     }
 }

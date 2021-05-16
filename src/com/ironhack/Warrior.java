@@ -6,33 +6,14 @@ public class Warrior extends Character implements Attacker {
 
     private int stamina;
     private int strength;
+    private Random rand;
 
     public Warrior(String name) {
         super(name);
-        this.hp = randomHP();
-        this.stamina = randomStamina();
-        this.strength = randomStrength();
+        setStamina(stamina);
+        setStrength(strength);
+        setHp(hp);
     }
-
-    // methods
-    public int randomHP(){
-        Random rand = new Random();
-        int randomHP = 100 + rand.nextInt(100);
-        return randomHP;
-    }
-
-    public int randomStamina(){
-        Random rand = new Random();
-        int randomStamina = 10 + rand.nextInt(40);
-        return randomStamina;
-    }
-
-    public int randomStrength(){
-        Random rand = new Random();
-        int randomStrength = rand.nextInt(10);
-        return randomStrength;
-    }
-
 
     // attack methods
 
@@ -61,12 +42,14 @@ public class Warrior extends Character implements Attacker {
 
     // setters + getters
 
+
     public int getStamina() {
         return stamina;
     }
 
     public void setStamina(int stamina) {
-        this.stamina = stamina;
+        this.rand = new Random();
+        this.stamina = 10 + rand.nextInt(40);
     }
 
     public int getStrength() {
@@ -74,6 +57,13 @@ public class Warrior extends Character implements Attacker {
     }
 
     public void setStrength(int strength) {
-        this.strength = strength;
+        this.rand = new Random();
+        this.strength = rand.nextInt(10);
     }
+
+    public void setHp(int hp) {
+        this.rand = new Random();
+        this.hp = 100 + rand.nextInt(100);
+    }
+
 }
