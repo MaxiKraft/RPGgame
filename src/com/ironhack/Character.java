@@ -13,7 +13,6 @@ abstract class Character {
     public Character(String name) {
         this.alive = true;
         this.name = name;
-        this.hp = hp;
     }
 
     // methods

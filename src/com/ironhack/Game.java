@@ -78,4 +78,19 @@ public class Game {
         this.wizards = wizards;
     }
 
+    public List<Character> getParty1() {
+        return party1;
+    }
+
+    public void setParty1(List<Character> party1) {
+        this.party1 = party1;
+    }
+
+    public List<Character> getParty2() {
+        return party2;
+    }
+
+    public void setParty2(List<Character> party2) {
+        this.party2 = party2;
+    }
 }

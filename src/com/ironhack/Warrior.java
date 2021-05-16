@@ -10,9 +10,9 @@ public class Warrior extends Character implements Attacker {
 
     public Warrior(String name) {
         super(name);
+        setHp(hp);
         setStamina(stamina);
         setStrength(strength);
-        setHp(hp);
     }
 
     // attack methods
